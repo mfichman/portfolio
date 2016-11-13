@@ -1,0 +1,35 @@
+.panel {
+  border-radius: 0px;
+  border: none;
+  background: $purple-dark;
+}
+
+.panel-default > .panel-heading {
+  background: $purple-dark;
+  border: none;
+  color: $white;
+}
+
+.panel-default > .panel-footer {
+  background: $purple-dark;
+  border: none;
+}
+
+.panel-heading {
+  margin: 0;
+  padding: 32px;
+}
+
+.panel-title {
+  font-size: $font-size-header;
+  font-weight: $font-weight-light;
+}
+
+.panel-body {
+  background: $purple-dark;
+  padding: 0;
+}
+
+.panel-footer {
+  padding: 32px;
+}

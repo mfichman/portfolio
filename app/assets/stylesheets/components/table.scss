@@ -1,0 +1,44 @@
+.table {
+  border-radius: 0px;
+  border: none;
+}
+
+.table > thead {
+  background: $purple-darker;
+}
+
+.table {
+  color: black;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: $gray-lighter;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: $gray-light;
+}
+
+.table > thead > tr > th {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-small;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+}
+
+.table > thead > tr > th:first-child,
+.table > tbody > tr > td:first-child {
+  padding-left: 32px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > td {
+  vertical-align: middle;
+  border: none;
+}
+
+.table-actions > .btn {
+  text-transform: uppercase;
+  font-size: $font-size-small;
+}

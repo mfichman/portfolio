@@ -1,0 +1,18 @@
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    <h1 class='panel-title'>Editing <%= @record.model_name.singular.titlecase %></h1>
+  </div>
+
+  <div class='panel-body'>
+    <div class='row'>
+      <div class='col-sm-9'>
+        <%= render 'form', @record.model_name.singular.to_sym => @record %>
+      </div>
+    </div>
+  </div>
+
+  <div class='panel-footer'>
+    <%= link_to 'Show', @record %> |
+    <%= link_to 'Back', url_for(record_class) %>
+  </div>
+</div>

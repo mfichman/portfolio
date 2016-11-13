@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    <h1 class='panel-title'><%= @record.model_name.singular.humanize.titlecase %></h1>
+  </div>
+
+  <div class='panel-body'%>
+    <dl class='dl-horizontal'>
+      <% display_attribute_names_for(@record.class).each do |name| %>
+        <dt><%= name.humanize.titlecase %></dt>
+        <dd><%= format_attribute(@record, name) %></dd>
+      <% end %>
+    </dl>
+  </div>
+
+  <div class='panel-footer'>
+    <%= link_to 'Edit', edit_polymorphic_path(@record) %> |
+    <%= link_to 'Back', record_class %>
+  </div>
+</div>

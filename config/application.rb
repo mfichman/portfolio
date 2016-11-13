@@ -11,5 +11,11 @@ module Portfolio
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.action_view.default_form_builder = 'ApplicationFormBuilder'
+    config.assets.prefix = '/static/assets'
+
+     # Add fonts to asset pipeline
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
   end
 end

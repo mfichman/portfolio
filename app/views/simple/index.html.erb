@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<div class='panel panel-default'>
+
+  <div class='panel-heading'>
+    <h1 class='panel-title'><%= record_class.model_name.plural.humanize.titlecase %></h1>
+  </div>
+
+  <div class='panel-body'>
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <% display_attribute_names_for(record_class).each do |name| %>
+            <th><%= name.humanize.titlecase %></th>
+          <% end %>
+          <th>Actions</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @records.each_with_index do |record, index| %>
+          <tr>
+            <% display_attribute_names_for(record_class).each do |name| %>
+              <td><%= format_attribute(record, name) %></th>
+            <% end %>
+            <td>
+              <div class='btn-toolbar'>
+                <div class='table-actions btn-group'>
+                  <%= link_to 'Show', record, class: 'btn btn-default' %>
+                </div>
+                <div class='table-actions btn-group'>
+                  <%= link_to edit_polymorphic_url(record), class: 'btn btn-default' do %>
+                    <span class='glyphicon glyphicon-pencil'></span>
+                  <% end %>
+                  <%= link_to record, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+                    <span class='glyphicon glyphicon-trash'></span>
+                  <% end %>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class='panel-footer'>
+    <%= link_to "New #{record_class.model_name.singular.humanize.titlecase}", new_polymorphic_url(record_class) %>
+  </div>
+</div>

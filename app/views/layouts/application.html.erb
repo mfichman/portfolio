@@ -6,9 +6,25 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <main>
+      <div class='container-fluid'>
+        <%= yield %>
+      </div>
+    </main>
+
+    <aside>
+      <nav class='menu menu-default'>
+        <ul class='nav nav-pills nav-stacked menu-nav'>
+          <li><%= link_to 'Accounts', accounts_path %></li>
+          <li><%= link_to 'Assets', assets_path %></li>
+          <li><%= link_to 'Transactions', transactions_path %></li>
+        </ul>
+      </nav>
+    </aside>
   </body>
 </html>
