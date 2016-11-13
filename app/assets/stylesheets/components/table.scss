@@ -1,14 +1,12 @@
 .table {
   border-radius: 0px;
   border: none;
+  color: black;
+  margin: 0;
 }
 
 .table > thead {
   background: $purple-darker;
-}
-
-.table {
-  color: black;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
@@ -20,22 +18,23 @@
 }
 
 .table > thead > tr > th {
-  font-weight: $font-weight-bold;
-  font-size: $font-size-small;
+  border: none;
   color: white;
-  text-transform: uppercase;
+  font-size: $font-size-small;
+  font-weight: $font-weight-bold;
   letter-spacing: .2em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+  border: none;
 }
 
 .table > thead > tr > th:first-child,
 .table > tbody > tr > td:first-child {
   padding-left: 32px;
-}
-
-.table > thead > tr > th,
-.table > tbody > tr > td {
-  vertical-align: middle;
-  border: none;
 }
 
 .table-actions > .btn {

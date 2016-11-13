@@ -12,10 +12,10 @@
  *
  */
 
+@import "variables";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap-theme";
-@import "variables";
+@import "bootstrap/theme";
 @import "components/**/*";
 
 body {
