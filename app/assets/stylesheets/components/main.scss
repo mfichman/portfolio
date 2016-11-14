@@ -5,3 +5,7 @@ main {
   left: 0;
   width: 100%;
 }
+
+main > .container-fluid {
+  padding-left: 0;
+}

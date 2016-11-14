@@ -19,10 +19,8 @@
 @import "components/**/*";
 
 body {
-  background-image: linear-gradient($purple-light, $purple-lighter);
-  background: $purple-light;
-  color: $white;
-  font-family: 'Roboto', sans-serif;
-  font-size: $font-size-text;
-  font-weight: $font-weight-text;
+  background-image: linear-gradient($brand-light, $brand-lighter);
+  font-weight: $font-weight-base;
 }
+
+

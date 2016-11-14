@@ -123,7 +123,7 @@ class ApplicationFormBuilder < ActionView::Helpers::FormBuilder
     
     @template.capture do
       object.errors.full_messages_for(key).each do |message|
-        @template.concat @template.content_tag(:div, message, class: 'help-block col-sm-offset-2 col-sm-9')
+        @template.concat @template.content_tag(:div, message, class: 'help-block col-sm-offset-3 col-sm-9')
       end
     end
   end

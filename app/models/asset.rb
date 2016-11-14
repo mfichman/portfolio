@@ -13,4 +13,8 @@ class Asset < ApplicationRecord
   validates :name, presence: true
   validates :style, presence: true, inclusion: { in: STYLES }
   validates :symbol, presence: true
+
+  def humanize
+    name.blank? ? super : name
+  end
 end

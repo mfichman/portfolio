@@ -1,7 +1,16 @@
+<p id="notice"><%= notice %></p>
+
 <div class='panel panel-default'>
   <div class='panel-heading'>
     <h1 class='panel-title'>Editing <%= @record.model_name.singular.titlecase %></h1>
   </div>
+
+  <ol class="breadcrumb">
+    <li><%= link_to 'Home', '/' %></li>
+    <li><%= link_to record_class.model_name.plural.humanize.titlecase, url_for(record_class) %></li>
+    <li><%= link_to @record.humanize, @record %></li>
+    <li class='active'>Edit</li>
+  </ol>
 
   <div class='panel-body'>
     <div class='row'>
@@ -9,10 +18,5 @@
         <%= render 'form', @record.model_name.singular.to_sym => @record %>
       </div>
     </div>
-  </div>
-
-  <div class='panel-footer'>
-    <%= link_to 'Show', @record %> |
-    <%= link_to 'Back', url_for(record_class) %>
   </div>
 </div>

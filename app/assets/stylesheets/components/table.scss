@@ -1,20 +1,19 @@
 .table {
-  border-radius: 0px;
   border: none;
   color: black;
   margin: 0;
 }
 
 .table > thead {
-  background: $purple-darker;
+  background: $brand-darker;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
-  background-color: $gray-lighter;
+  background-color: lighten($gray-lighter, 80%);
 }
 
 .table-striped > tbody > tr:nth-of-type(even) {
-  background-color: $gray-light;
+  background-color: $gray-lighter;
 }
 
 .table > thead > tr > th {
@@ -37,7 +36,12 @@
   padding-left: 32px;
 }
 
-.table-actions > .btn {
+.table > thead > tr > th:last-child,
+.table > tbody > tr > td:last-child {
+  padding-right: 32px;
+}
+
+.table-actions .btn {
   text-transform: uppercase;
   font-size: $font-size-small;
 }
