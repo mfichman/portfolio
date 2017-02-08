@@ -5,6 +5,38 @@ aside {
   bottom: 0;
   height: 100%;
   width: $sidebar-width;
-  background: $brand-primary
+  padding-top: $navbar-height + 1;
+  background: white;
+  z-index: 100;
+  background: $brand-primary;
+ // background-image: linear-gradient($gray-dark, $gray-darker);
 }
 
+.menu > .nav > li + li {
+  margin: 0;
+}
+
+.menu > .nav > li > a,
+.menu > .nav > li > a:active,
+.menu > .nav > li > a:focus {
+  color: white;
+  background: $brand-primary;
+  margin: 0;
+}
+
+.menu > .nav > li,
+.menu > .nav > li:active,
+.menu > .nav > li:focus {
+  border-top: 1px solid lighten($brand-primary, 5%);
+  border-bottom: 1px solid darken($brand-primary, 5%);
+}
+
+.menu > .nav > li:hover {
+  background: $brand-darker;
+  border-top: 1px solid darken($brand-darker, 5%);
+  border-bottom: 1px solid darken($brand-darker, 5%);
+}
+
+.menu > .nav > li > a.active {
+  border-left: 6px solid $brand-lighter;
+}

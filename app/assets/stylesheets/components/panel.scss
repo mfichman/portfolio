@@ -2,6 +2,10 @@
   border: none;
 }
 
+.panel-heading {
+  background-image: none;
+}
+
 .panel-title {
   font-size: $font-size-header;
   font-weight: $font-weight-light;
