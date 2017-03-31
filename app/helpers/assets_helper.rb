@@ -1,9 +1,9 @@
 module AssetsHelper
   def asset_attribute_names
-    %w(name symbol exchange asset_class style market_cap expense_ratio)
+    %w(name symbol exchange category expense_ratio)
   end
 
-  def format_asset_class(value)
+  def format_category(value)
     value.titlecase
   end
 

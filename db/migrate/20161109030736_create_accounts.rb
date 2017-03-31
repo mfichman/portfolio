@@ -4,6 +4,7 @@ class CreateAccounts < ActiveRecord::Migration[5.0]
       t.string :account_number, null: false
       t.string :institution, null: false
       t.string :name, null: false
+      t.string :tax_status, null: false
 
       t.timestamps
     end

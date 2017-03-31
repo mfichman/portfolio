@@ -2,6 +2,7 @@
   <%= f.simple_text_field :name %>
   <%= f.simple_text_field :account_number %>
   <%= f.simple_text_field :institution %>
+  <%= f.simple_collection_select :tax_status, Account::TAX_STATUS, :itself, :humanize %>
 
   <%= f.submit %>
 <% end %>

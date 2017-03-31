@@ -1,0 +1,25 @@
+<%= form_tag(url_for(action: action), method: method) do %>
+  <table class='table'>
+    <thead>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Category</th>
+      <th>Exchange</th>
+      <th>Expense Ratio</th>
+    </thead>
+    <tbody>
+      <% assets.each_with_index do |asset, index| %>
+        <%= fields_for('assets[]', asset, index: asset.id||index) do |f| %>
+          <tr>
+            <td><%= f.batch_text_field :name %></td>
+            <td><%= f.batch_text_field :symbol, size: 6 %></td>
+            <td><%= f.batch_collection_select :category, Asset::CATEGORY, :itself, :titlecase %></td>
+            <td><%= f.batch_collection_select :exchange, Asset::EXCHANGE, :itself, :upcase %></td>
+            <td><%= f.batch_text_field :expense_ratio, size: 4 %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr><td colspan='4'><div class='form-actions'><%= batch_submit_tag(action) %></td></td></tr>
+    </tbody>
+  </table>
+<% end %>

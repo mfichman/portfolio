@@ -1,6 +1,6 @@
 <div class='panel panel-default'>
   <div class='panel-heading'>
-    <h1 class='panel-title'>New <%= @record.model_name.singular.titlecase %> </h1>
+    <h1 class='panel-title'>New <%= record_class.model_name.singular.titlecase %> </h1>
   </div>
 
   <ol class="breadcrumb">
@@ -12,10 +12,10 @@
   <div class='panel-body'>
     <div class='row'>
       <div class='col-sm-9'>
-        <%= render 'form', @record.model_name.singular.to_sym => @record %>
+        <%= render 'form', record_class.model_name.singular.to_sym => @record %>
       </div>
     </div>
   </div>
 
-  <div class='panel-footer'/>
+  <div class='panel-footer'></div>
 </div>

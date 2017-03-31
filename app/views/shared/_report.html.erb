@@ -1,0 +1,31 @@
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    <h1 class='panel-title'><%= name %>
+      <div class='panel-toolbar'>
+        <div class='btn-group'>
+        </div>
+      </div>
+    </h1>
+  </div>
+
+  <ol class="breadcrumb">
+    <li><%= link_to 'Home', '/' %></li>
+    <li>Reports</li>
+    <li class='active'><%= name %></li>
+  </ol>
+
+  <% if notice.present? %>
+    <p class="alert alert-info"><%= notice %></p>
+  <% end %>
+
+  <%= yield :chart %>
+  <%= yield :table %>
+
+  <div class='panel-body'>
+    <%= yield :body %>
+  </div>
+
+  <div class='panel-footer'>
+    <%= yield :footer %>
+  </div>
+</div>

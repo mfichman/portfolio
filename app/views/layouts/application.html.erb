@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Portfolio</title>
+    <title>SuperPortfolio</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
   </head>
 
   <body>
-    <nav class='navbar navbar-default'>
+    <nav class='navbar navbar-default navbar-fixed-top'>
       <div class='container-fluid'>
         <div class='navbar-header'>
-          <a class="navbar-brand" href="#">Portfolio</a>
+          <a class="navbar-brand" href="#">
+            <div>
+              <span class='normal glyphicon glyphicon-equalizer'></span>
+              super<span class='navbar-brand-bold'>portfolio</span>
+            </div>
+            <span class='label label-danger'>beta!</span>
+          </a>
         </div>
       </div>
     </nav>
@@ -28,9 +34,18 @@
     <aside>
       <nav class='menu menu-default'>
         <ul class='nav nav-pills nav-stacked menu-nav'>
-          <li class='active'><%= link_to 'Accounts', accounts_path, class: 'active' %></li>
-          <li><%= link_to 'Assets', assets_path %></li>
-          <li><%= link_to 'Transactions', transactions_path %></li>
+          <%= menu_item('Accounts', accounts_path) %>
+          <%= menu_item('Assets', assets_path) %>
+          <%= menu_item('Transactions', transactions_path) %>
+          <%= menu_dropdown('Reports', '/reports') do %>
+            <ul class='nav nav-pills nav-stacked menu-dropdown-list'>
+              <%= menu_item('Allocation', reports_allocation_path) %>
+              <%= menu_item('Price', reports_price_path) %>
+              <%= menu_item('Value', reports_value_path) %>
+              <%= menu_item('Performance', reports_performance_path) %>
+              <%= menu_item('Returns', reports_returns_path) %>
+            </ul>
+          <% end %>
         </ul>
       </nav>
     </aside>

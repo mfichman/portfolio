@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cost_basis: 
+  asset_id: 1
+  account_id: 1
+  opened_on: 2017-03-19
+
+two:
+  cost_basis: 
+  asset_id: 1
+  account_id: 1
+  opened_on: 2017-03-19

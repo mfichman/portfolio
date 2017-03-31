@@ -1,0 +1,16 @@
+.form-control,
+.form-control:hover,
+.form-control:active,
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.has-error {
+  color: $brand-warning;
+}
+
+.form-actions {
+  margin-top: 32px;
+
+}

@@ -10,6 +10,9 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
       t.string :type, null: false
 
       t.timestamps
+
+      t.index :account_id
+      t.index :asset_id
     end
   end
 end

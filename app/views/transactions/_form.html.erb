@@ -1,7 +1,7 @@
 <%= form_for(transaction) do |f| %>
   <%= f.simple_collection_select :account_id, @accounts, :id, :name %>
   <%= f.simple_collection_select :asset_id, @assets, :id, :name %>
-  <%= f.simple_collection_select :type, Transaction::TYPES, :itself, :humanize %>
+  <%= f.simple_collection_select :type, Transaction::TYPE, :itself, :humanize %>
   <%= f.simple_date_field :completed_on %>
   <%= f.simple_number_field :shares %>
   <%= f.simple_currency_field :price %>

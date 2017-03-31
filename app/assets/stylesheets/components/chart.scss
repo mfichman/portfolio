@@ -1,0 +1,67 @@
+$colors: (#F394C3,#D3ABE8,#A1C4FC,#63DAFB,#35EAE5,#5AF6C0,#99FC95,#DBFC72);
+
+@for $i from 1 through length($colors) {
+  path.chart-fill-color-#{$i - 1} {
+    fill: nth($colors, $i);
+  }
+
+  path.chart-stroke-color-#{$i - 1} {
+    stroke: nth($colors, $i);
+    vector-effect: non-scaling-stroke;
+  }
+
+  .chart-legend li.chart-color-#{$i - 1}::before {
+    color: nth($colors, $i);
+    content: "■";
+    margin-right: .5em;
+    font-size: $font-size-large;
+  }
+}
+
+@for $i from 1 through length($colors) {
+}
+
+.chart {
+  background: white;
+  width: 100%;
+}
+
+.chart-image {
+  max-height: 300px;
+}
+
+.chart-body {
+  padding: 32px;
+  width: 100%;
+}
+
+.chart-legend {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.chart-toolbar {
+  background: $breadcrumb-bg;
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.chart-toolbar label {
+  font-weight: 300;
+}
+
+@media(max-width: $screen-xs-max) {
+  .chart-legend {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+  }
+
+  .chart-legend > li {
+    display: inline-block;
+    padding-right: 16px;
+  }
+}

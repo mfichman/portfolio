@@ -1,0 +1,29 @@
+<%= form_tag(url_for(action: action), method: method) do %>
+  <table class='table'>
+    <thead>
+      <th>Account</th>
+      <th>Asset</th>
+      <th>Type</th>
+      <th>Completed On</th>
+      <th>Shares</th>
+      <th>Price</th>
+      <th>Amount</th>
+    </thead>
+    <tbody>
+      <% transactions.each_with_index do |transaction, index| %>
+        <%= fields_for('transactions[]', transaction, index: transaction.id||index) do |f| %>
+          <tr>
+            <td><%= f.batch_collection_select :account_id, @accounts, :id, :name %></td>
+            <td><%= f.batch_collection_select :asset_id, @assets, :id, :name %></td>
+            <td><%= f.batch_collection_select :type, Transaction::TYPE, :itself, :humanize %></td>
+            <td><%= f.batch_date_field :completed_on %></td>
+            <td><%= f.batch_number_field :shares, size: 6 %></td>
+            <td><%= f.batch_currency_field :price, size: 6 %></td>
+            <td><%= f.batch_currency_field :amount, size: 6 %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr><td colspan='4'><div class='form-actions'><%= batch_submit_tag(action) %></td></td></tr>
+    </tbody>
+  </table>
+<% end %>

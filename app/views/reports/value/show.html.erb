@@ -1,0 +1,32 @@
+<%= content_for(:chart) do %>
+  <div class='chart'>
+
+    <div class='chart-body'>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <%= line(@values) %>
+        </div>
+      </div>
+    </div>
+
+    <div class='chart-toolbar btn-group' role='group'>
+    </div>
+  </div>
+<% end %>
+
+<% content_for(:table) do %>
+  <table class='table'>
+    <thead>
+    </thead>
+    <tbody>
+      <% @values.each_with_index do |value, n| %>
+        <tr>
+          <td><%= @labels[n] %></td>
+          <td><%= value.format %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= render 'shared/report', name: 'Value' %>

@@ -3,8 +3,7 @@
     <h1 class='panel-title'><%= @record.name %>
       <div class='panel-toolbar'>
         <div class='btn-group'>
-          <%= link_to edit_polymorphic_url(@record), class: 'btn btn-primary' do %>
-            <span class='glyphicon glyphicon-edit'></span>
+          <%= link_to edit_polymorphic_url(@record), class: 'btn btn-default' do %>
             <%= "Edit #{record_class.model_name.singular.humanize.titlecase}" %>
           <% end %>
         </div>
@@ -12,15 +11,15 @@
     </h1>
   </div>
 
-  <% if notice.present? %>
-    <p class="alert alert-info"><%= notice %></p>
-  <% end %>
-
   <ol class="breadcrumb">
     <li><%= link_to 'Home', '/' %></li>
     <li><%= link_to record_class.model_name.plural.humanize.titlecase, url_for(record_class) %></li>
     <li class='active'><%= @record.humanize %></li>
   </ol>
+
+  <% if notice.present? %>
+    <p class="alert alert-info"><%= notice %></p>
+  <% end %>
 
   <div class='panel-body'%>
     <dl class='dl-horizontal'>
@@ -31,5 +30,5 @@
     </dl>
   </div>
 
-  <div class='panel-footer'/>
+  <div class='panel-footer'></div>
 </div>

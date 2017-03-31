@@ -1,0 +1,50 @@
+<%= content_for(:chart) do %>
+  <div class='chart'>
+
+    <div class='chart-body'>
+      <div class='row'>
+        <div class='col-sm-6'>
+          <%= pie(@values) %>
+        </div>
+        <div class='col-sm-6'>
+          <ul class='chart-legend'>
+            <%= legend(@labels) do |label, n| %>
+              <li class='chart-color-<%= n %>'><%= t(label) %>: <strong><%= percent(@values[n], @values.sum) %></strong></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class='chart-toolbar btn-group' role='group'>
+      <div class='checkbox'>
+        <label><input type='checkbox'>Allocation Class</label>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% content_for(:table) do %>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Value</th>
+        <th>Percent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @labels.each_with_index do |label, n| %>
+        <tr>
+          <td><%= t(label) %></td>
+          <td><%= @values[n].format %></td>
+          <td><%= percent(@values[n], @values.sum) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
+<%= render 'shared/report', name: 'Allocation' %>
+

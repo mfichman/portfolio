@@ -1,5 +1,26 @@
 .navbar {
   z-index: 1000;
-  padding-left: 16px;
+  background-image: none;
 }
 
+.navbar-brand {
+  font-size: $font-size-h3;
+  padding-left: 32px;
+  letter-spacing: .05em;
+  color: darken(white, 10%);
+  text-shadow: none;
+  font-weight: 300;
+  display: flex;
+  align-items: flex-start;
+}
+
+.navbar-brand-bold {
+  font-weight: 700;
+  padding-left: 1px;
+  padding-right: 4px;
+  color: white;
+}
+
+.navbar-brand > .label {
+  font-size: $font-size-small;
+}

@@ -1,42 +1,97 @@
 aside {
-  position: fixed;
-  top: 0;
-  left: 0;
+  background: $brand-primary;
   bottom: 0;
   height: 100%;
+  left: 0;
+  padding-top: 0;
+  position: fixed;
+  top: $navbar-height;
   width: $sidebar-width;
-  padding-top: $navbar-height + 1;
-  background: white;
   z-index: 100;
-  background: $brand-primary;
  // background-image: linear-gradient($gray-dark, $gray-darker);
 }
 
-.menu > .nav > li + li {
-  margin: 0;
+.menu-nav {
+  font-size: $font-size-large;
 }
 
-.menu > .nav > li > a,
-.menu > .nav > li > a:active,
-.menu > .nav > li > a:focus {
-  color: white;
+.menu-nav > li + li {
+  margin: 0px;
+}
+
+.menu-nav > li.open > a:focus,
+.menu-nav > li.open > a,
+.menu-nav > li > a:focus,
+.menu-nav > li > a {
   background: $brand-primary;
-  margin: 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-right: 20px;
 }
 
-.menu > .nav > li,
-.menu > .nav > li:active,
-.menu > .nav > li:focus {
-  border-top: 1px solid lighten($brand-primary, 5%);
-  border-bottom: 1px solid darken($brand-primary, 5%);
+.menu-nav > li.open > a:hover,
+.menu-nav > li.open > a:active,
+.menu-nav > li.open > a.active,
+.menu-nav > li > a:hover,
+.menu-nav > li > a:active,
+.menu-nav > li > a.active {
+  background: $brand-lighter;
 }
 
-.menu > .nav > li:hover {
+.menu-dropdown > a > .arrow-down {
+  display: none;
+  font-size: $font-size-base;
+}
+
+.menu-dropdown > a > .arrow-right {
+  display: inline-block;
+  font-size: $font-size-base;
+}
+
+.menu-dropdown > .menu-dropdown-list {
+  display: none;
+}
+
+.menu-dropdown.open > .menu-dropdown-list {
+  display: block;
+}
+
+.menu-dropdown.open > a > .arrow-down {
+  display: inline-block;
+}
+
+.menu-dropdown.open > a > .arrow-right {
+  display: none;
+}
+
+.menu-dropdown-list {
   background: $brand-darker;
-  border-top: 1px solid darken($brand-darker, 5%);
-  border-bottom: 1px solid darken($brand-darker, 5%);
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
-.menu > .nav > li > a.active {
-  border-left: 6px solid $brand-lighter;
+.menu-dropdown-list > li + li {
+  margin: 0px;
+}
+
+.menu-dropdown-list > li.open > a:focus,
+.menu-dropdown-list > li.open > a,
+.menu-dropdown-list > li > a:focus,
+.menu-dropdown-list > li > a {
+  padding-left: 48px;
+  color: white;
+  background: $brand-darker;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.menu-dropdown-list > li.open > a:hover,
+.menu-dropdown-list > li.open > a:active,
+.menu-dropdown-list > li.open > a.active,
+.menu-dropdown-list > li > a:hover,
+.menu-dropdown-list > li > a:active,
+.menu-dropdown-list > li > a.active {
+  background: $brand-primary;
 }

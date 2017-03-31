@@ -1,10 +1,8 @@
 <%= form_for(asset) do |f| %>
   <%= f.simple_text_field :name %>
   <%= f.simple_text_field :symbol %>
-  <%= f.simple_collection_select :market_cap, Asset::MARKET_CAPS, :itself, :humanize %>
-  <%= f.simple_collection_select :style, Asset::STYLES, :itself, :humanize %>
-  <%= f.simple_collection_select :asset_class, Asset::ASSET_CLASSES, :itself, :humanize %>
-  <%= f.simple_collection_select :exchange, Asset::EXCHANGES, :itself, :upcase %>
+  <%= f.simple_collection_select :category, Asset::CATEGORY, :itself, :humanize %>
+  <%= f.simple_collection_select :exchange, Asset::EXCHANGE, :itself, :upcase %>
   <%= f.simple_text_field :expense_ratio %>
 
   <%= f.submit %>

@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  large_equity: Large Cap Equity
+  medium_equity: Medium Cap Equity
+  small_equity: Small Cap Equity

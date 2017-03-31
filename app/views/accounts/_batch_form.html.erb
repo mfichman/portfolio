@@ -1,0 +1,23 @@
+<%= form_tag(url_for(action: action), method: method) do %>
+  <table class='table'>
+    <thead>
+      <th>Name</th>
+      <th>Account Number</th>
+      <th>Institution</th>
+      <th>Tax Status</th>
+    </thead>
+    <tbody>
+      <% accounts.each_with_index do |account, index| %>
+        <%= fields_for('accounts[]', account, index: account.id||index) do |f| %>
+          <tr>
+            <td><%= f.batch_text_field :name %></td>
+            <td><%= f.batch_text_field :account_number %></td>
+            <td><%= f.batch_text_field :institution %></td>
+            <td><%= f.batch_collection_select :tax_status, Account::TAX_STATUS, :itself, :humanize %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr><td colspan='4'><div class='form-actions'><%= batch_submit_tag(action) %></td></td></tr>
+    </tbody>
+  </table>
+<% end %>

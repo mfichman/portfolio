@@ -10,26 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109030736) do
+ActiveRecord::Schema.define(version: 20170322154018) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "account_number", null: false
     t.string   "institution",    null: false
     t.string   "name",           null: false
+    t.string   "tax_status",     null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
   create_table "assets", force: :cascade do |t|
     t.decimal  "expense_ratio", null: false
-    t.string   "asset_class",   null: false
+    t.string   "category",      null: false
     t.string   "exchange",      null: false
-    t.string   "market_cap",    null: false
     t.string   "name",          null: false
-    t.string   "style",         null: false
     t.string   "symbol",        null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "lots", force: :cascade do |t|
+    t.integer  "cost_basis_cents",    default: 0,     null: false
+    t.string   "cost_basis_currency", default: "USD", null: false
+    t.integer  "shares",                              null: false
+    t.integer  "asset_id",                            null: false
+    t.integer  "account_id",                          null: false
+    t.date     "opened_on",                           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.datetime "quoted_at"
+    t.integer  "price_cents",    default: 0,     null: false
+    t.string   "price_currency", default: "USD", null: false
+    t.integer  "asset_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -44,6 +69,8 @@ ActiveRecord::Schema.define(version: 20161109030736) do
     t.string   "type",                            null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.index ["account_id"], name: "index_transactions_on_account_id"
+    t.index ["asset_id"], name: "index_transactions_on_asset_id"
   end
 
 end

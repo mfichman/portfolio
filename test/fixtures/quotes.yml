@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quoted_at: 2017-03-17 00:05:38
+  price: 
+  asset_id: 1
+
+two:
+  quoted_at: 2017-03-17 00:05:38
+  price: 
+  asset_id: 1

@@ -1,0 +1,6 @@
+- pie: % of portfolio by class
+- line: price by time
+- line: value by time
+- table: performance
+- table: annualized return
+- stacked line: comparison?

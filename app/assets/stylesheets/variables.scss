@@ -1,6 +1,6 @@
-$sidebar-width: 200px;
+$sidebar-width: 220px;
 
-$font-size-header: 32pt;
+$font-size-header: 28pt;
 
 $font-weight-light: 100;
 $font-weight-base: 300;
@@ -13,22 +13,35 @@ $brand-light: rgb(88, 72, 138);
 $brand-primary: rgb(74, 64, 144);
 $brand-darker: rgb(55, 46, 108);
 
+$brand-secondary: rgb(255, 242, 79);
+
+$state-danger-text: #d9534f;
+
 $state-info-bg: lighten($brand-primary, 50%);
 $state-info-border: darken($brand-primary, 0%);
 $state-info-text: darken($brand-primary, 0%);
 
 $font-family-sans-serif: 'Roboto', sans-serif;
-$font-size-base: 16px;
+$font-size-base: 14px;
 $font-size-small: 9pt;
 
 $border-radius-base: 0px;
+$border-radius-large: 0px;
+$border-radius-small: 0px;
 
-$body-bg: $brand-light;
-
-$panel-default-heading-bg: $brand-primary;
-$panel-default-text: white;
-$panel-default-border: none;
 $panel-body-padding: 32px;
 $panel-heading-padding: 32px;
 
 $nav-link-padding: 20px 32px;
+
+$navbar-height: 80px;
+$navbar-default-bg: $brand-darker;
+$navbar-default-brand-color: white;
+$navbar-default-border: none;
+
+$btn-default-color: #555;
+$btn-default-bg: #ddd;
+
+$btn-border-radius-base: 2px;
+$btn-border-radius-large: 2px;
+$btn-border-radius-small: 2px;
