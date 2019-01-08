@@ -17,5 +17,8 @@ module SuperPortfolio
      # Add fonts to asset pipeline
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+
+    # Add validators to autoload
+    config.autoload_paths << Rails.root.join('lib', 'validators')
   end
 end

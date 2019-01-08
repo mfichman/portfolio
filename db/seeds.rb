@@ -38,18 +38,18 @@ assets = Asset.create!([
   }
 ]).cycle
 
-quotes = Quote.create!(100.times.flat_map { |d|
-  r = Random.rand(1000..2000)
-  Asset.all.where(id: 1).map do |asset|
-    r += Random.rand(1..2)
-    {
-      price_cents: r,
-      price_currency: 'usd',
-      asset: assets.next,
-      quoted_at: DateTime.now - d.days,
-    }
-  end
-})
+#quotes = Quote.create!(100.times.flat_map { |d|
+#  r = Random.rand(1000..2000)
+#  Asset.all.where(id: 1).map do |asset|
+#    r += Random.rand(1..2)
+#    {
+#      price_cents: r,
+#      price_currency: 'usd',
+#      asset: assets.next,
+#      quoted_at: DateTime.now - d.days,
+#    }
+#  end
+#})
 
 lots = Lot.create!(100.times.flat_map { |d|
   {

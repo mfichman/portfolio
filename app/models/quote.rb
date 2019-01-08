@@ -1,26 +1,26 @@
 class Quote < ApplicationRecord
   belongs_to :asset
 
-  CURRENCY = %w(usd)
+  CURRENCY = %w(USD)
 
-  monetize :price_cents
+  monetize :high_cents, with_currency: :usd, numericality: { greater_than: 0 }
+  monetize :low_cents, with_currency: :usd, numericality: { greater_than: 0 }
+  monetize :open_cents, with_currency: :usd, numericality: { greater_than: 0 }
+  monetize :close_cents, with_currency: :usd, numericality: { greater_than: 0 }
 
-  with_options presence: true do
-    validates :price
-    validates :price_cents
-    validates :price_currency
-    validates :quoted_at
-  end
+  validates :quoted_on, presence: true
+  validates :volume, presence: true
 
-  with_options allow_blank: true do
-    validates :price, numericality: { greater_than: 0 }
-    validates :price_currency, inclusion: { in: CURRENCY }
-  end
+  validates :high, presence: true, money: true
+  validates :low, presence: true, money: true
+  validates :open, presence: true, money: true
+  validates :close, presence: true, money: true
 
-  scope :in, -> (range) { where('quoted_at >= ? and quoted_at <= ?', range.first, range.last) }
+  validates :high_currency, inclusion: { in: CURRENCY }
+  validates :low_currency, inclusion: { in: CURRENCY }
+  validates :open_currency, inclusion: { in: CURRENCY }
+  validates :close_currency, inclusion: { in: CURRENCY }
+
+  scope :in, -> (range) { where('quoted_on >= ? and quoted_on <= ?', range.first, range.last) }
   scope :sorted, -> { order(:quoted_at) }
-
-  def quoted_on
-    quoted_at.to_date
-  end
 end

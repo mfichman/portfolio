@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170322154018) do
     t.string   "symbol",        null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["name"], name: "index_assets_on_name", unique: true
   end
 
   create_table "lots", force: :cascade do |t|
@@ -49,9 +50,16 @@ ActiveRecord::Schema.define(version: 20170322154018) do
   end
 
   create_table "quotes", force: :cascade do |t|
-    t.datetime "quoted_at"
-    t.integer  "price_cents",    default: 0,     null: false
-    t.string   "price_currency", default: "USD", null: false
+    t.date     "quoted_on"
+    t.integer  "high_cents",     default: 0,     null: false
+    t.string   "high_currency",  default: "USD", null: false
+    t.integer  "low_cents",      default: 0,     null: false
+    t.string   "low_currency",   default: "USD", null: false
+    t.integer  "close_cents",    default: 0,     null: false
+    t.string   "close_currency", default: "USD", null: false
+    t.integer  "open_cents",     default: 0,     null: false
+    t.string   "open_currency",  default: "USD", null: false
+    t.integer  "volume"
     t.integer  "asset_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
