@@ -1,5 +1,9 @@
 $colors: (#F394C3,#D3ABE8,#A1C4FC,#63DAFB,#35EAE5,#5AF6C0,#99FC95,#DBFC72);
 
+path {
+  fill: none;
+}
+
 @for $i from 1 through length($colors) {
   path.chart-fill-color-#{$i - 1} {
     fill: nth($colors, $i);
@@ -7,6 +11,7 @@ $colors: (#F394C3,#D3ABE8,#A1C4FC,#63DAFB,#35EAE5,#5AF6C0,#99FC95,#DBFC72);
 
   path.chart-stroke-color-#{$i - 1} {
     stroke: nth($colors, $i);
+    stroke-width: 0.1em;
     vector-effect: non-scaling-stroke;
   }
 
@@ -28,6 +33,7 @@ $colors: (#F394C3,#D3ABE8,#A1C4FC,#63DAFB,#35EAE5,#5AF6C0,#99FC95,#DBFC72);
 
 .chart-image {
   max-height: 300px;
+  width: 100%
 }
 
 .chart-body {

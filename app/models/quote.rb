@@ -22,5 +22,5 @@ class Quote < ApplicationRecord
   validates :close_currency, inclusion: { in: CURRENCY }
 
   scope :in, -> (range) { where('quoted_on >= ? and quoted_on <= ?', range.first, range.last) }
-  scope :sorted, -> { order(:quoted_at) }
+  scope :sorted, -> { order(:quoted_on) }
 end

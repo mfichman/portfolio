@@ -1,4 +1,4 @@
-class Reports::ValueController < ApplicationController
+class Reports::PriceController < ApplicationController
   before_action :set_range
   before_action :set_assets
   before_action :set_labels
@@ -21,8 +21,8 @@ class Reports::ValueController < ApplicationController
   end
 
   def set_values
-    @values = @labels.map do |date|
-      @assets.sum do |asset|
+    @values = @assets.map do |asset|
+      @labels.map do |date|
         asset.quotes.reverse.bsearch { |quote| quote.quoted_on <= date }.close
       end
     end

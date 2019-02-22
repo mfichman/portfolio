@@ -23,6 +23,6 @@ class Lot < ApplicationRecord
   delegate :category, to: :asset
 
   def value
-    shares * quotes.last.price
+    quotes.any? ? shares * quotes.last.close : Money.new(0)
   end
 end

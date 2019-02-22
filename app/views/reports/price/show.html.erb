@@ -1,0 +1,17 @@
+<%= content_for(:chart) do %>
+  <div class='chart'>
+
+    <div class='chart-body'>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <%= line(@values, style: 'stroke') %>
+        </div>
+      </div>
+    </div>
+
+    <div class='chart-toolbar btn-group' role='group'>
+    </div>
+  </div>
+<% end %>
+
+<%= render 'shared/report', name: 'Value' %>

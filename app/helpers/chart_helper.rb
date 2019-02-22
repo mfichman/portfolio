@@ -11,26 +11,45 @@ module ChartHelper
     end
   end
 
-  def line(values)
-    y_max = values.max
-    y_min = values.min
-    y_scale = y_max - y_min
-
-    y_min = y_min - 0.1 * y_scale
-    y_scale = 1.2 * y_scale
-
-    x_max = values.count.to_f
-    x_min = 0
-    x_scale = x_max - x_min
-
+  # Takes an array of series, each of which is a list of values
+  def line(series, style: 'fill')
     chart = Rasem::SVGImage.new(class: 'chart-image', preserveAspectRatio: 'none', viewBox: '0 0 1 1') do
-      path(class: "chart-fill-color-1") do
-        moveToA(0, 1)
-        lineToA(x_min, 1 - (values.first - y_min) / y_scale)
-        values.each_with_index do |value, n|
-          lineToA((n - x_min) / x_scale, 1 - (value - y_min) / y_scale)
+      series.each_with_index do |values, n|
+        path(class: "chart-#{style}-color-#{n}") do
+          y_max = values.max || 0
+          y_min = values.min || 0
+          y_scale = y_max - y_min
+
+          y_min = y_min - 0.1 * y_scale
+          y_scale = 1.2 * y_scale
+
+          y_first = values.first || 0
+
+          x_max = values.count.to_f
+          x_min = 0
+          x_scale = x_max - x_min - 1
+
+          if style == 'fill'
+            moveToA(0, 1)
+            lineToA(x_min, 1 - (y_first - y_min) / y_scale)
+          elsif style == 'stroke'
+            moveToA(x_min, 1 - (y_first - y_min) / y_scale)
+          else
+            raise ArgumentError, 'invalid stroke'
+          end
+
+          values.each_with_index do |value, n|
+            lineToA((n - x_min) / x_scale, 1 - (value - y_min) / y_scale)
+          end
+
+          if style == 'fill'
+            lineToA(1, 1)
+          elsif style == 'stroke'
+            # pass
+          else
+            raise ArgumentError, 'invalid stroke'
+          end
         end
-        lineToA(x_max, 1)
       end
     end
 
